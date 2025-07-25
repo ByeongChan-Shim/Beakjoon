@@ -11,10 +11,8 @@ int main() {
     for (long i = 0; i < b; i++) cin >> vb[i];
     sort(va.begin(), va.end());
     sort(vb.begin(), vb.end());
-    vector<long long> vab(a + b), vba(a + b);
-    auto iter = set_difference(va.begin(), va.end(), vb.begin(), vb.end(), vab.begin());
-    vab.erase(iter, vab.end());
-    auto iter1 = set_difference(vb.begin(), vb.end(), va.begin(), va.end(), vba.begin());
-    vba.erase(iter1, vba.end());
-    cout << vab.size() + vba.size();
+    vector<long long> v(a + b);
+    auto iter = set_symmetric_difference(va.begin(), va.end(), vb.begin(), vb.end(), v.begin());
+    v.erase(iter, v.end());
+    cout << v.size();
 }
